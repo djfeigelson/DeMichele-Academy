@@ -22,6 +22,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Refuse to publish the wrong file
+        run: |
+          if ! grep -q "DeMichele Academy" index.html; then
+            echo "::error::index.html does not contain 'DeMichele Academy' — refusing to deploy."
+            grep -m1 "<title>" index.html || true
+            exit 1
+          fi
+          echo "index.html looks right:"
+          grep -m1 "<title>" index.html
+
       - name: Upload index.html to S3
         run: |
           aws s3 cp index.html s3://demicheleacademy.com/index.html \
