@@ -624,7 +624,11 @@ form{display:flex;flex-direction:column;gap:14px}
   var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
   var stage = document.querySelector('.stage');
 
-  function show(name) {
+  var names = panels.map(function (p) { return p.getAttribute('data-panel'); });
+
+  function show(name, updateUrl) {
+    if (names.indexOf(name) === -1) name = 'home';
+
     panels.forEach(function (p) {
       p.classList.toggle('is-active', p.getAttribute('data-panel') === name);
     });
@@ -632,6 +636,18 @@ form{display:flex;flex-direction:column;gap:14px}
       t.setAttribute('aria-selected', String(t.getAttribute('data-go') === name));
     });
     if (stage) stage.scrollTop = 0;
+
+    // keep the panel in the URL so a refresh or a shared link lands in the
+    // same place. replaceState rather than pushState, so the back button
+    // leaves the site instead of walking back through every panel visited.
+    if (updateUrl !== false && window.history && history.replaceState) {
+      var url = location.pathname + location.search + (name === 'home' ? '' : '#' + name);
+      try { history.replaceState(null, '', url); } catch (e) {}
+    }
+  }
+
+  function fromHash() {
+    return (location.hash || '').replace(/^#/, '');
   }
 
   document.querySelectorAll('[data-go]').forEach(function (el) {
@@ -649,6 +665,12 @@ form{display:flex;flex-direction:column;gap:14px}
       show(next.getAttribute('data-go'));
     });
   });
+
+  // back/forward, or someone editing the address bar
+  window.addEventListener('hashchange', function () { show(fromHash(), false); });
+
+  // restore the panel named in the URL on load
+  show(fromHash(), false);
 })();
 </script>
 
