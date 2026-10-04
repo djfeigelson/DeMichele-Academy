@@ -19,7 +19,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Nothing+You+Could+Do&display=swap">
 
 <style>
 /* ---------- palette B: warm ink & olive ---------- */
@@ -167,9 +167,9 @@ a{color:var(--accent-text)}
   font-family:"IBM Plex Mono",monospace;font-size:.5625rem;letter-spacing:.06em;
   color:var(--muted);opacity:.7;margin-top:-7px;
 }
-.plate .big{
-  font-family:"Newsreader",serif;font-style:italic;font-size:2.125rem;line-height:1.14;
-  letter-spacing:-.02em;color:var(--ink);text-wrap:balance;
+.plate .sig{
+  font-family:"Nothing You Could Do","Caveat",cursive;font-size:1.3125rem;line-height:1.2;
+  color:var(--ink);max-width:32em;width:100%;text-align:right;margin-top:2px;
 }
 .plate .sub{
   font-family:"Newsreader",serif;font-size:1rem;line-height:1.55;color:var(--muted);
@@ -238,7 +238,7 @@ a{color:var(--accent-text)}
   letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
 }
 @media (max-width:640px){
-  .plate .big{font-size:1.625rem}
+  .plate .sig{font-size:1.1875rem}
   .plate .sub{font-size:.9375rem}
   .plate .av{width:68px;height:68px}
 }
@@ -382,9 +382,9 @@ form{display:flex;flex-direction:column;gap:14px}
         </div>
         <p class="avcap">headshot placeholder</p>
 
-        <p class="big">Let’s work together</p>
-
         <p class="sub">College test prep and AP classes can be enormously stressful, but they are also opportunities to close knowledge gaps and develop the skills necessary to excel in higher education. I tutor students one-on-one and let them lead the way, working to boost confidence, problem solving, and repeatable test outcomes.</p>
+
+        <p class="sig">Let’s work together</p>
 
         <div class="creds">
           <p class="school">University of Chicago Alumnus</p>
