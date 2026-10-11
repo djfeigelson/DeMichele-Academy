@@ -142,6 +142,9 @@ a{color:var(--accent-text)}
   transition:background-color .14s ease,border-color .14s ease,color .14s ease;
 }
 .nb:hover{background:var(--surface-2)}
+/* buttons stay one size until a third row would appear; then one step down,
+   so phones hold at two rows */
+@media (max-width:470px){.nav{gap:7px}.nb{font-size:.75rem;padding:9px 11px}}
 .nb[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .nb.nb-book{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .nb.nb-book:hover{filter:brightness(1.07)}
