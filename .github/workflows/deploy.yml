@@ -38,8 +38,14 @@ jobs:
             --content-type "text/html; charset=utf-8" \
             --cache-control "public, max-age=300"
 
+      - name: Upload og.png to S3
+        run: |
+          aws s3 cp og.png s3://demicheleacademy.com/og.png \
+            --content-type "image/png" \
+            --cache-control "public, max-age=604800"
+
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id E2BXO9U9HRQJ8Y \
-            --paths "/" "/index.html"
+            --paths "/" "/index.html" "/og.png"
