@@ -162,7 +162,7 @@ a{color:var(--accent-text)}
 /* ---------- home: centred plate ---------- */
 .plate{
   height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;gap:15px;padding-block:14px;
+  text-align:center;gap:13px;padding-block:10px;
 }
 .plate .av{
   width:84px;height:84px;border-radius:50%;flex:0 0 auto;
@@ -202,9 +202,9 @@ a{color:var(--accent-text)}
 
 /* results / testimonials */
 .plate .results{
-  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:22px 38px;
-  margin-top:20px;padding-top:18px;border-top:1px solid var(--rule);
-  max-width:48em;width:100%;
+  display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto auto;gap:18px 32px;
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);
+  max-width:64em;width:100%;
 }
 /* each testimonial adopts the parent's rows, so quote / initials / scores
    line up across both columns no matter how long the quote runs */
@@ -224,7 +224,7 @@ a{color:var(--accent-text)}
 }
 .plate .result blockquote{
   margin:0;font-family:"Newsreader",serif;font-style:italic;font-size:1rem;line-height:1.45;
-  color:var(--ink);max-width:20em;margin-inline:auto;
+  color:var(--ink);max-width:17em;margin-inline:auto;
   display:flex;align-items:center;justify-content:center;text-align:center;
 }
 .plate .scores{display:flex;flex-direction:column;gap:2px;align-items:center}
@@ -386,6 +386,15 @@ form{display:flex;flex-direction:column;gap:14px}
         <a class="cta" href="https://cal.com/demicheleacademy/consultation" target="_blank" rel="noopener">Book a free 20-minute consult <span class="arw">→</span></a>
 
         <div class="results">
+          <figure class="result">
+            <blockquote>“David was proactive about getting to know me and understanding exactly what I needed help with. He made difficult concepts much easier to understand and actually made me excited to learn physics for a change.”</blockquote>
+            <p class="who">RC, Senior</p>
+            <figcaption class="scores">
+              <span class="move">AP Physics Grade <b>85 → 93</b></span>
+              <span class="meta">Eight points · Two and a half months</span>
+            </figcaption>
+          </figure>
+
           <figure class="result">
             <blockquote>“You helped so much on this test, and I’m really happy with the results.”</blockquote>
             <p class="who">GP, Junior</p>
