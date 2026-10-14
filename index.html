@@ -162,7 +162,7 @@ a{color:var(--accent-text)}
 /* ---------- home: centred plate ---------- */
 .plate{
   height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;gap:13px;padding-block:10px;
+  text-align:center;gap:10px;padding-block:6px;
 }
 .plate .av{
   width:84px;height:84px;border-radius:50%;flex:0 0 auto;
@@ -191,7 +191,7 @@ a{color:var(--accent-text)}
 }
 .plate .creds .honors i{color:var(--rule);font-style:normal;line-height:1.5}
 .plate .cta{
-  display:inline-flex;align-items:center;gap:7px;margin-top:5px;
+  display:inline-flex;align-items:center;gap:7px;margin-top:2px;
   font-family:"IBM Plex Sans",sans-serif;font-size:.9375rem;font-weight:500;
   letter-spacing:0;text-transform:none;color:var(--accent-text);text-decoration:none;
   border-bottom:1px solid var(--accent);padding-bottom:3px;
@@ -202,24 +202,27 @@ a{color:var(--accent-text)}
 
 /* results / testimonials */
 .plate .results{
-  display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto auto;gap:18px 32px;
-  margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);
+  display:flex;flex-direction:column;gap:12px;
+  margin-top:12px;padding-top:12px;border-top:1px solid var(--rule);
   max-width:64em;width:100%;
 }
+.plate .result.lead{display:flex;flex-direction:column;align-items:center;gap:6px;max-width:52em;margin-inline:auto}
+.plate .result.lead blockquote{max-width:47em}
+.plate .pair{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:12px 36px}
 /* each testimonial adopts the parent's rows, so quote / initials / scores
    line up across both columns no matter how long the quote runs */
-.plate .result{
+.plate .pair .result{
   display:grid;grid-template-rows:subgrid;grid-row:span 3;
   gap:8px;justify-items:center;align-content:start;margin:0;
 }
 /* browsers without row subgrid: reserve two lines for every quote instead */
 @supports not (grid-template-rows:subgrid){
-  .plate .result{display:flex;flex-direction:column;align-items:center}
+  .plate .pair .result{display:flex;flex-direction:column;align-items:center}
   .plate .result blockquote{min-height:2.9em}
 }
 @media (max-width:760px){
-  .plate .results{grid-template-columns:1fr;grid-template-rows:none;gap:18px;margin-top:16px}
-  .plate .result{display:flex;flex-direction:column;align-items:center}
+  .plate .pair{grid-template-columns:1fr;grid-template-rows:none;gap:16px}
+  .plate .pair .result{display:flex;flex-direction:column;align-items:center}
   .plate .result blockquote{min-height:0}
 }
 .plate .result blockquote{
@@ -386,7 +389,7 @@ form{display:flex;flex-direction:column;gap:14px}
         <a class="cta" href="https://cal.com/demicheleacademy/consultation" target="_blank" rel="noopener">Book a free 20-minute consult <span class="arw">→</span></a>
 
         <div class="results">
-          <figure class="result">
+          <figure class="result lead">
             <blockquote>“David was proactive about getting to know me and understanding exactly what I needed help with. He made difficult concepts much easier to understand and actually made me excited to learn physics for a change.”</blockquote>
             <p class="who">RC, Senior</p>
             <figcaption class="scores">
@@ -395,6 +398,7 @@ form{display:flex;flex-direction:column;gap:14px}
             </figcaption>
           </figure>
 
+          <div class="pair">
           <figure class="result">
             <blockquote>“You helped so much on this test, and I’m really happy with the results.”</blockquote>
             <p class="who">GP, Junior</p>
@@ -412,6 +416,7 @@ form{display:flex;flex-direction:column;gap:14px}
               <span class="meta">All four sections up · Two months</span>
             </figcaption>
           </figure>
+          </div>
         </div>
       </div>
     </section>
